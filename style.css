@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.calculator-body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.display {
+    background-color: #CFE6DA;
+    padding: .2rem 1rem;
+}
+
+.numpad {
+    background-color: #9b9ba1;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0.5rem;
+
+    background: 
+  linear-gradient(135deg, #5c5e62 25%, transparent 25%) -50px 0,
+  linear-gradient(225deg, #58585a 25%, transparent 25%) -50px 0,
+  linear-gradient(315deg, #5c5e62 25%, transparent 25%),
+  linear-gradient(45deg, #626264 25%, transparent 25%);	
+  background-size: 2em 2em;
+  background-color: #646469;
+}
+
+.key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 2.3rem;
+    padding: 0.2rem;
+    color: #D4D4D4;
+    background-color: #2D2D2D;
+    border-radius: 5px;
+    box-shadow: -1px -1px 1px 1px rgba(0, 0, 0, 0.75),
+                0px 0px 1px 1px rgba(0,0,0,0.75) inset,
+                -1px -1px 1px 1px rgba(255, 255, 255, 0.1) inset,
+                -5px 5px 20px 5px rgba(255,255,255,0.2) inset;
+}
+
+.key:active {
+    box-shadow: -1px -1px 1px 0px rgba(0, 0, 0, 0.75),
+                0px 0px 1px 1px rgba(0,0,0,0.75) inset,
+                -1px -1px 1px 1px rgba(255, 255, 255, 0.1) inset,
+                -5px 5px 20px 5px rgba(255,255,255,0.2) inset;
+    transform: scale(0.98);
+}

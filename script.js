@@ -15,7 +15,7 @@ function operate(operator, a, b) {
             break;
 
         case "/":
-            if ( b === 0){return "we can't divide by 0"}
+            if (b === 0) { return "we can't divide by 0" }
             return operations.divide(a, b)
             break;
 
