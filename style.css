@@ -7,57 +7,94 @@
 body {
     display: flex;
     justify-content: center;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.8rem;
 }
 
 .calculator-body {
+    margin: 2rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    border-radius: 20% 20% 10% 10%;
+    box-shadow: -1px -1px 1px 1px rgba(0, 0, 0, 0.75), 0px 0px 5px 1px rgba(0, 0, 0, 0.459) inset, -1px -1px 1px 1px rgba(255, 255, 255, 0.1) inset, -5px 5px 20px 5px rgba(255, 255, 255, 0.2) inset;
+}
+
+h1 {
+    padding: 0.5rem 1rem;
+    color: #b8617dd0;
+    font-size: 2rem;
 }
 
 .display {
+    border: 1rem solid #3A3A3E;
+    border-radius: 0.5rem ;
+    background-color: #3A3A3E;
+    /*box-shadow: 3px 3px 4px 8px #A4A4A7 ;*/
+}
+
+#screen {
+    padding: 1rem 1rem;
     background-color: #CFE6DA;
-    padding: .2rem 1rem;
+    font-family: 'Segment14Regular';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2.2rem;
+    text-shadow: 1px 1px 1px rgba(15, 15, 15, 0.671);
+    box-shadow: 1px 1px 1px rgba(15, 15, 15, 0.671) inset, 2px 2px 8px 1px #a4a4a77a;
+    border-radius: 0.5rem;
 }
 
 .numpad {
-    background-color: #9b9ba1;
     padding: 1rem;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(4, 1fr);
     gap: 0.5rem;
+}
 
-    background: 
-  linear-gradient(135deg, #5c5e62 25%, transparent 25%) -50px 0,
-  linear-gradient(225deg, #58585a 25%, transparent 25%) -50px 0,
-  linear-gradient(315deg, #5c5e62 25%, transparent 25%),
-  linear-gradient(45deg, #626264 25%, transparent 25%);	
-  background-size: 2em 2em;
-  background-color: #646469;
+.bg-fiber {
+    background: linear-gradient(135deg, #5c5e62 25%, transparent 25%) -50px 0, linear-gradient(225deg, #58585a 25%, transparent 25%) -50px 0, linear-gradient(315deg, #5c5e62 25%, transparent 25%), linear-gradient(45deg, #626264 25%, transparent 25%);
+    background-size: 2em 2em;
+    background-color: #646469;
 }
 
 .key {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 3rem;
+    min-width: 4rem;
+    min-height: 3rem;
     height: 2.3rem;
     padding: 0.2rem;
     color: #D4D4D4;
     background-color: #2D2D2D;
     border-radius: 5px;
-    box-shadow: -1px -1px 1px 1px rgba(0, 0, 0, 0.75),
-                0px 0px 1px 1px rgba(0,0,0,0.75) inset,
-                -1px -1px 1px 1px rgba(255, 255, 255, 0.1) inset,
-                -5px 5px 20px 5px rgba(255,255,255,0.2) inset;
+    user-select: none;
+    grid-auto-columns: max-content;
+    box-shadow: -1px -1px 1px 1px rgba(0, 0, 0, 0.75), 0px 0px 1px 1px rgba(0, 0, 0, 0.75) inset, -1px -1px 1px 1px rgba(255, 255, 255, 0.1) inset, -5px 5px 20px 5px rgba(255, 255, 255, 0.2) inset;
+}
+
+.span-2 {
+    grid-column: span 2
+}
+
+.br-bl {
+    border-bottom-left-radius: 2rem;
+}
+.br-br {
+    border-bottom-right-radius: 2rem;
+}
+
+.bg-yellow {
+    color: #2f2f2f;
+    background-color: #E4B341;
+    box-shadow: -1px -1px 1px 1px rgba(0, 0, 0, 0.75), 0px 0px 1px 1px rgba(0, 0, 0, 0.75) inset, -1px -1px 1px 1px rgba(255, 255, 255, 0.1) inset, -5px 5px 20px 5px rgba(255, 255, 255, 0.2) inset;
+
 }
 
 .key:active {
-    box-shadow: -1px -1px 1px 0px rgba(0, 0, 0, 0.75),
-                0px 0px 1px 1px rgba(0,0,0,0.75) inset,
-                -1px -1px 1px 1px rgba(255, 255, 255, 0.1) inset,
-                -5px 5px 20px 5px rgba(255,255,255,0.2) inset;
+    box-shadow: -1px -1px 1px 0px rgba(0, 0, 0, 0.75), 0px 0px 1px 1px rgba(0, 0, 0, 0.75) inset, -1px -1px 1px 1px rgba(255, 255, 255, 0.1) inset, -5px 5px 20px 5px rgba(255, 255, 255, 0.2) inset;
     transform: scale(0.98);
 }
