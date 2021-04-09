@@ -19,8 +19,17 @@ function changeDisplay(parameter) {
     let type = parameter.target.getAttribute("type");
     let key = parameter.target.id;
 
+
     switch (type) {
         case "number":
+
+            //check if is exeded the display digits
+            if (displayValue && String(displayValue).split("").length > 12) { return }
+            //chek if period is already in the display
+            if (key === ".") {
+                if (String(displayValue).indexOf(".") !== -1) { return }
+            }
+
             if (!operator) {
                 numA = display.textContent + key;
                 displayValue = numA;
@@ -37,40 +46,55 @@ function changeDisplay(parameter) {
         case "mod":
             if (key === "AC") { displayValue = "" }
             if (key === "DEL") { displayValue = display.textContent.split("").slice(0, -1).join("") }
-            if (key === "=") {
-                console.log(operator, numA, numB);
-                numA = operate(operator, numA, numB)
+            if (key === "=" && operator) {
+                numA = operate(operator, parseFloat(numA), parseFloat(numB))
                 displayValue = numA;
                 operator = "";
+
             }
-            display.textContent = displayValue;
+
+            display.textContent = normalizeOut(displayValue);
 
             break;
 
         case "oper":
             if (displayValue) {
-                if (key === "-1") {
-                    displayValue = display.textContent * -1
-                    display.textContent = displayValue;
-                } else {
+
+                if (operator) {
+                    console.log(operator, numA, numB);
+                    numA = operate(operator, parseFloat(numA), parseFloat(numB))
+                    displayValue = numA;
+                    display.textContent = normalizeOut(displayValue);
+                    displayValue = "";
                     operator = key
 
+                } else {
+                    operator = key
                     displayValue = "";
                 }
 
             }
-
-            //display.textContent = displayValue;
-
-
             break;
 
         default:
             break;
     }
 
-    //display.textContent = displayValue;
 
+}
+
+function normalizeOut(number) {
+    //check if is exeded the display max digits
+    if (String(number).split("").length > 12) {
+        if (String(number).indexOf(".")) {
+            if (String(number).indexOf("e")) {
+                return "OUT OF RANGE";
+            }
+            number = number.toFixed(2);
+            number = String(number).slice(0, 13);
+        }
+    }
+    return number;
 }
 
 
@@ -105,6 +129,6 @@ const operations = {
     add: function (a, b) { return (a + b) },
     subtract: function (a, b) { return (a - b) },
     multiply: function (a, b) { return (a * b) },
-    divide: function (a, b) { return (a / b) }
+    divide: function (a, b) { return (a / b).toFixed(2) }
 }
 
