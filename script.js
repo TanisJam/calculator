@@ -13,11 +13,15 @@ let display = document.querySelector("#screen");
 
 
 
-function changeDisplay(parameter) {
-    //if click other than a key, return
-    if (!parameter.target.id) { return };
-    let type = parameter.target.getAttribute("type");
-    let key = parameter.target.id;
+function changeDisplay(parameter, type, key) {
+    if (parameter) {
+        //if click other than a key, return    
+        if (!parameter.target.id) { return };
+        type = parameter.target.getAttribute("type");
+        key = parameter.target.id;
+    }
+
+
 
 
     switch (type) {
@@ -97,8 +101,57 @@ function normalizeOut(number) {
     return number;
 }
 
+//keyboard interface
+window.addEventListener("keydown", keyPress);
+function keyPress(e) {
+
+    let type;
+    let key;
+
+    switch (e.key) {
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+        case "6":
+        case "7":
+        case "8":
+        case "9":
+        case "0":
+        case ".":
+            type = "number";
+            key = e.key;
+            break;
+
+        case "Enter":
+            type = "mod"
+            key = "=";
+            break;
+        case "Delete":
+            type = "mod"
+            key = "AC";
+            break;
+        case "Backspace":
+            type = "mod"
+            key = "DEL";
+            break;
+
+        case "+":
+        case "-":
+        case "*":
+        case "/":
+            type = "oper";
+            key = e.key;
+
+        default:
+            break;
+    }
+    changeDisplay(false, type, key)
+}
 
 
+//basic operations
 function operate(operator, a, b) {
     switch (operator) {
         case "+":

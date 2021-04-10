@@ -6,7 +6,8 @@ Calculator assignment form the odin project
 - [x] Create basic funtionalites in JS
 - [x] Create a basic grid
 - [x] Add styles to keys
-- [ ] Add style to display
-- [ ] Link functionalities to the html
+- [x] Add style to display
+- [x] Link functionalities to the html
+- [x] Add keyboard support
 
 LIVE (In progress): https://tanisjam.github.io/calculator/
